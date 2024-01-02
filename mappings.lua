@@ -18,6 +18,14 @@ return {
     --   desc = "Previous buffer",
     -- },
 
+    ["<C-p>"] = {
+      function() require("telescope.builtin").find_files { hidden = true, no_ignore = true } end,
+      desc = "Find all files",
+    },
+    ["<C-\\>"] = {
+      function() require("Comment.api").toggle.linewise.count(vim.v.count > 0 and vim.v.count or 1) end,
+      desc = "Toggle comment line",
+    },
     -- mappings seen under group name "Buffer"
     ["<leader>bD"] = {
       function()
@@ -37,4 +45,10 @@ return {
     -- setting a mapping to false will disable it
     -- ["<esc>"] = false,
   },
+  v = {
+    ["<C-\\>"] = {
+      "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>",
+      desc = "Toggle comment for selection",
+    },
+  }
 }

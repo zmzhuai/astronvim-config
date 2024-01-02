@@ -9,4 +9,14 @@ return {
   --     require("lsp_signature").setup()
   --   end,
   -- },
+  "jose-elias-alvarez/typescript.nvim",
+  opts = {
+    server = {
+      settings={
+        diagnostics = {
+          ignoredCodes = { 80001 },
+        },
+      },
+    },
+  }
 }
